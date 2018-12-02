@@ -1,0 +1,26 @@
+{
+  "name": "Movie List",
+  "version": "0.1",
+  "description": "Movie List front end promt",
+  "author": "Francis Lo",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "babel": "babel . --out-dir compiled --presets=react --ignore=node_modules,compiled --source-maps inline --watch"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.2",
+    "jquery": "^2.2.1",
+    "lodash": "^4.6.1",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.6.5",
+    "babel-plugin-react": "1.0.0",
+    "babel-preset-react": "^6.5.0",
+    "chai": "^3.5.0",
+    "mocha": "2.3.3",
+    "sinon": "1.17.3"
+  }
+}
