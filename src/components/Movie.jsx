@@ -1,8 +1,10 @@
 var Movie = ({movie}) => {
   console.log(movie)
   return (
-    <li title={movie}>{movie}</li>
-  ) 
+    <div className='movie'>
+      <li title={movie}>{movie}</li>
+    </div>
+    ) 
 };
 
 export default Movie;

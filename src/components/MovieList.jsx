@@ -1,7 +1,7 @@
 import Movie from './Movie.js';
 
 var MovieList = ({movieList}) => (
-  <div>
+  <div className="movie-list">
     <ul>
       {movieList.map((title, index) => 
       {
