@@ -1,4 +1,5 @@
 import MovieList from './MovieList.js'
+import Search from './Search.js'
 
 class App extends React.Component {
   constructor(props) {
@@ -18,9 +19,12 @@ class App extends React.Component {
 
     return (
       <div>
+        <Search
+          
+        />
         <MovieList
           movieList={this.state.movieList}
-          />
+        />
       </div>
     )
   }

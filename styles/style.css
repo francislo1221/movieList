@@ -22,7 +22,25 @@ h1{
   padding: 1px;
   margin: 0px auto;
   overflow: auto;
-  width: 75%
+  width: 75%;
+}
+
+.search-bar {
+  border-radius: 1px;
+  background: #fff;
+  width: auto;
+}
+
+.search-bar .form-control {
+  border-radius: 2px;
+  width: 80%
+}
+.search-bar .btn {
+  border-radius: 2px;
+  border-color: #d3d3d3;
+  background: #f8f8f8;
+  width: 20%;
+  margin-left: -1px;
 }
 
 }
