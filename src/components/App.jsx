@@ -7,12 +7,43 @@ class App extends React.Component {
 
     this.state = {
       movieList: ['Creed 2', 'Back to the Future', 'Sisterhood of the Traveling Pants'],
+      fullList: ['Creed 2', 'Back to the Future', 'Sisterhood of the Traveling Pants'],
       input: ''
     }
   }
 
   handleSearchInput(e) {
-    console.log(e.target.value);
+    this.setState({
+      input: e.target.value
+    })
+  }
+
+  handleClick() {
+    if (this.state.input === '') {
+      this.setState({
+
+        movieList: this.state.fullList
+      })
+    }
+
+    for(var i = 0; i < this.state.fullList.length; i++) {
+      console.log(this.state.input)
+      debugger;
+      if (this.state.fullList[i] === this.state.input) {
+        this.setState({
+          movieList: [this.state.input]
+        })
+        return;
+      } else if (this.state.input === '') {
+        this.setState({
+          movieList: fullList
+        })
+      } else {
+        this.setState({
+          movieList: ['movie not available']
+        })
+      }
+    };
   }
   
   
@@ -23,7 +54,7 @@ class App extends React.Component {
     return (
       <div>
         <Search
-          value={this.state.input} handleSearchInput={this.handleSearchInput.bind(this)}
+          value={this.state.input} handleSearchInput={this.handleSearchInput.bind(this)} handleClick={this.handleClick.bind(this)}
         />
         <MovieList
           movieList={this.state.movieList}
