@@ -10,20 +10,18 @@ class App extends React.Component {
       movieList: ['Creed 2', 'Back to the Future', 'Sisterhood of the Traveling Pants'],
       fullList: ['Creed 2', 'Back to the Future', 'Sisterhood of the Traveling Pants'],
       input: '',
-      selected: ''
     }
   }
 
-  handleSearchInput(e) {
+  handleInput(e) {
+    console.log(e.target.value)
     this.setState({
       input: e.target.value
     })
   }
 
-  handleClick() {
+  handleSearchClick() {
     for(var i = 0; i < this.state.fullList.length; i++) {
-      console.log(this.state.fullList)
-      debugger;
       if (this.state.input === '') {
         this.setState({
           movieList: this.state.fullList
@@ -42,16 +40,12 @@ class App extends React.Component {
     };
   }
   
-  
   render() {
-    this.state.movieList.map((movie) => {
-      console.log(movie)
-    })
     return (
       <div>
-        <Add />
+        <Add value={this.state.input} handleInput={this.handleInput.bind(this)}/>
         <Search
-          value={this.state.input} handleSearchInput={this.handleSearchInput.bind(this)} handleClick={this.handleClick.bind(this)}
+          value={this.state.input} handleInput={this.handleInput.bind(this)} handleSearchClick={this.handleSearchClick.bind(this)}
         />
         <MovieList
           movieList={this.state.movieList}
@@ -66,3 +60,8 @@ export default App;
 //add ability to collect form input information in Search
 //compare input to this.movieList 
 //only render what matches the search 
+
+
+//add - handle user input
+  //handle click 
+    //update state.fullList with additional movie 
