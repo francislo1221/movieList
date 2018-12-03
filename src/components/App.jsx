@@ -8,7 +8,8 @@ class App extends React.Component {
     this.state = {
       movieList: ['Creed 2', 'Back to the Future', 'Sisterhood of the Traveling Pants'],
       fullList: ['Creed 2', 'Back to the Future', 'Sisterhood of the Traveling Pants'],
-      input: ''
+      input: '',
+      selected: ''
     }
   }
 
@@ -19,25 +20,19 @@ class App extends React.Component {
   }
 
   handleClick() {
-    if (this.state.input === '') {
-      this.setState({
-
-        movieList: this.state.fullList
-      })
-    }
-
     for(var i = 0; i < this.state.fullList.length; i++) {
-      console.log(this.state.input)
+      console.log(this.state.fullList)
       debugger;
-      if (this.state.fullList[i] === this.state.input) {
+      if (this.state.input === '') {
         this.setState({
-          movieList: [this.state.input]
+          movieList: this.state.fullList
+        }) 
+        return;
+      } else if (this.state.fullList[i].includes(this.state.input)) {
+        this.setState({
+          movieList: [this.state.fullList[i]]
         })
         return;
-      } else if (this.state.input === '') {
-        this.setState({
-          movieList: fullList
-        })
       } else {
         this.setState({
           movieList: ['movie not available']
