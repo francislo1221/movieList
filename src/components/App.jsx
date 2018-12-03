@@ -78,9 +78,17 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Add value={this.state.addInput} handleInput={this.handleInput.bind(this)} handleAdd={this.handleAdd.bind(this)} onKeyDown={this.keyPress.bind(this)}/>
+        <Add 
+          value={this.state.addInput} 
+          handleInput={this.handleInput.bind(this)} 
+          handleAdd={this.handleAdd.bind(this)} 
+          onKeyDown={this.keyPress.bind(this)}
+        />
         <Search
-          value={this.state.searchInput} handleInput={this.handleInput.bind(this)} handleSearch={this.handleSearch.bind(this)} onKeyDown={this.keyPress.bind(this)}
+          value={this.state.searchInput} 
+          handleInput={this.handleInput.bind(this)} 
+          handleSearch={this.handleSearch.bind(this)} 
+          onKeyDown={this.keyPress.bind(this)}
         />
         <MovieList
           movieList={this.state.movieList}
