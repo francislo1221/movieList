@@ -30,7 +30,7 @@ class App extends React.Component {
 
     var matches = []
     for(var i = 0; i < this.state.fullList.length; i++) {
-      if (this.state.fullList[i].includes(this.state.searchInput)) {
+      if (this.state.fullList[i].toLowerCase().includes(this.state.searchInput.toLowerCase())) {
         matches.push(this.state.fullList[i])
       }
     }
