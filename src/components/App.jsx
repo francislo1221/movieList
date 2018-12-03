@@ -7,8 +7,8 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      movieList: ['Creed 2', 'Back to the Future', 'Sisterhood of the Traveling Pants'],
-      fullList: ['Creed 2', 'Back to the Future', 'Sisterhood of the Traveling Pants'],
+      movieList: [],
+      fullList: [],
       searchInput: '',
       addInput: ''
     }
@@ -35,12 +35,14 @@ class App extends React.Component {
         return;
       } else if (this.state.fullList[i].includes(this.state.searchInput)) {
         this.setState({
-          movieList: [this.state.fullList[i]]
+          movieList: [this.state.fullList[i]],
+          searchInput: ''
         })
         return;
       } else {
         this.setState({
-          movieList: ['movie not available']
+          movieList: ['movie not available'],
+          searchInput: ''
         })
       }
     };
@@ -48,9 +50,13 @@ class App extends React.Component {
 
   handleAddClick() {
     // when clicked, takes state.input and adds it to fullList
+    if (this.state.addInput === '') {
+      return;
+    }
     this.setState({
       fullList: [...this.state.fullList, this.state.addInput],
-      movieList: [...this.state.fullList, this.state.addInput]
+      movieList: [...this.state.fullList, this.state.addInput],
+      addInput: ''
     })
   }
   
