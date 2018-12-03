@@ -6,21 +6,24 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      movieList: ['movie1', 'movie2', 'movie3']
+      movieList: ['Creed 2', 'Back to the Future', 'Sisterhood of the Traveling Pants'],
+      input: ''
     }
   }
 
-
+  handleSearchInput(e) {
+    console.log(e.target.value);
+  }
+  
+  
   render() {
-
     this.state.movieList.map((movie) => {
       console.log(movie)
     })
-
     return (
       <div>
         <Search
-          
+          value={this.state.input} handleSearchInput={this.handleSearchInput.bind(this)}
         />
         <MovieList
           movieList={this.state.movieList}
@@ -31,3 +34,7 @@ class App extends React.Component {
 }
 
 export default App;
+
+//add ability to collect form input information in Search
+//compare input to this.movieList 
+//only render what matches the search 
