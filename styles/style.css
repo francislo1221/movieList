@@ -6,7 +6,7 @@ body {
 
 #app{
   display: block;
-  width: 75%;
+  width: 400px;
   margin: auto;
 }
 
@@ -15,14 +15,16 @@ h1{
 }
 
 .movie{
+  float: right;
   text-align: center;
   display: block;
   font-size: 20px;
   border-style: solid;
-  padding: 1px;
+  border-width: thin;
+  padding: 0px;
   margin: 0px auto;
   overflow: auto;
-  width: 75%;
+  width: 111%;
 }
 
 .search-bar {
