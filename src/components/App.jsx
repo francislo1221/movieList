@@ -19,13 +19,7 @@ class App extends React.Component {
       searchInput: e.target.value
     })
   }
-
-  handleAddInput(e) {
-    this.setState({
-      addInput: e.target.value
-    })
-  }
-
+  
   handleSearchClick() {
     if (this.state.searchInput === '') {
       this.setState({
@@ -54,6 +48,23 @@ class App extends React.Component {
       }
     };
 
+  handleAddInput(e) {
+    this.setState({
+      addInput: e.target.value
+    })
+  }
+  
+  keyPress(e) {
+    console.log(e.target.id)
+    if(e.keyCode === 13) {
+      if(e.target.id === 'add') {
+        this.handleAddClick(this.state.addInput)
+      } else if (e.target.id === 'search') {
+        this.handleSearchClick(this.state.searchInput)
+      }
+    }
+  }
+
   handleAddClick() {
     // when clicked, takes state.input and adds it to fullList
     if (this.state.addInput === '') {
@@ -69,9 +80,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Add value={this.state.addInput} handleAddInput={this.handleAddInput.bind(this)} handleAddClick={this.handleAddClick.bind(this)} />
+        <Add value={this.state.addInput} handleAddInput={this.handleAddInput.bind(this)} handleAddClick={this.handleAddClick.bind(this)} onKeyDown={this.keyPress.bind(this)}/>
         <Search
-          value={this.state.searchInput} handleSearchInput={this.handleSearchInput.bind(this)} handleSearchClick={this.handleSearchClick.bind(this)}
+          value={this.state.searchInput} handleSearchInput={this.handleSearchInput.bind(this)} handleSearchClick={this.handleSearchClick.bind(this)} onKeyDown={this.keyPress.bind(this)}
         />
         <MovieList
           movieList={this.state.movieList}
