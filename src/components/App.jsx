@@ -1,5 +1,6 @@
-import MovieList from './MovieList.js'
-import Search from './Search.js'
+import MovieList from './MovieList.js';
+import Search from './Search.js';
+import Add from './Add.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -48,6 +49,7 @@ class App extends React.Component {
     })
     return (
       <div>
+        <Add />
         <Search
           value={this.state.input} handleSearchInput={this.handleSearchInput.bind(this)} handleClick={this.handleClick.bind(this)}
         />
