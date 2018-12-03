@@ -27,15 +27,14 @@ class App extends React.Component {
   };
   
   keyPress(e) {
-    console.log(e.target.id)
     if(e.keyCode === 13) {
       if(e.target.id === 'add') {
         this.handleAdd(this.state.addInput)
       } else if (e.target.id === 'search') {
         this.handleSearch(this.state.searchInput)
       }
-    }
-  }
+    };
+  };
 
   handleSearch() {
     if (this.state.searchInput === '') {
@@ -74,7 +73,7 @@ class App extends React.Component {
       movieList: [...this.state.fullList, this.state.addInput],
       addInput: ''
     })
-  }
+  };
   
   render() {
     return (
@@ -88,7 +87,7 @@ class App extends React.Component {
         />
       </div>
     )
-  }
-}
+  };
+};
 
 export default App;
