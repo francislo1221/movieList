@@ -27,18 +27,25 @@ class App extends React.Component {
   }
 
   handleSearchClick() {
+    if (this.state.searchInput === '') {
+      this.setState({
+        movieList: this.state.fullList
+      }) 
+      return;
+    }
+
+    var matches = []
     for(var i = 0; i < this.state.fullList.length; i++) {
-      if (this.state.searchInput === '') {
-        this.setState({
-          movieList: this.state.fullList
-        }) 
-        return;
-      } else if (this.state.fullList[i].includes(this.state.searchInput)) {
-        this.setState({
-          movieList: [this.state.fullList[i]],
-          searchInput: ''
-        })
-        return;
+      if (this.state.fullList[i].includes(this.state.searchInput)) {
+        matches.push(this.state.fullList[i])
+      }
+    }
+
+    if (matches.length > 0) {
+      this.setState({
+        movieList: matches,
+        searchInput: ''
+      })
       } else {
         this.setState({
           movieList: ['movie not available'],
@@ -46,7 +53,6 @@ class App extends React.Component {
         })
       }
     };
-  }
 
   handleAddClick() {
     // when clicked, takes state.input and adds it to fullList
