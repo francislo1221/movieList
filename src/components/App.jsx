@@ -9,25 +9,31 @@ class App extends React.Component {
     this.state = {
       movieList: ['Creed 2', 'Back to the Future', 'Sisterhood of the Traveling Pants'],
       fullList: ['Creed 2', 'Back to the Future', 'Sisterhood of the Traveling Pants'],
-      input: '',
+      searchInput: '',
+      addInput: ''
     }
   }
 
-  handleInput(e) {
-    console.log(e.target.value)
+  handleSearchInput(e) {
     this.setState({
-      input: e.target.value
+      searchInput: e.target.value
+    })
+  }
+
+  handleAddInput(e) {
+    this.setState({
+      addInput: e.target.value
     })
   }
 
   handleSearchClick() {
     for(var i = 0; i < this.state.fullList.length; i++) {
-      if (this.state.input === '') {
+      if (this.state.searchInput === '') {
         this.setState({
           movieList: this.state.fullList
         }) 
         return;
-      } else if (this.state.fullList[i].includes(this.state.input)) {
+      } else if (this.state.fullList[i].includes(this.state.searchInput)) {
         this.setState({
           movieList: [this.state.fullList[i]]
         })
@@ -39,13 +45,21 @@ class App extends React.Component {
       }
     };
   }
+
+  handleAddClick() {
+    // when clicked, takes state.input and adds it to fullList
+    this.setState({
+      fullList: [...this.state.fullList, this.state.addInput],
+      movieList: [...this.state.fullList, this.state.addInput]
+    })
+  }
   
   render() {
     return (
       <div>
-        <Add value={this.state.input} handleInput={this.handleInput.bind(this)}/>
+        <Add value={this.state.addInput} handleAddInput={this.handleAddInput.bind(this)} handleAddClick={this.handleAddClick.bind(this)} />
         <Search
-          value={this.state.input} handleInput={this.handleInput.bind(this)} handleSearchClick={this.handleSearchClick.bind(this)}
+          value={this.state.searchInput} handleSearchInput={this.handleSearchInput.bind(this)} handleSearchClick={this.handleSearchClick.bind(this)}
         />
         <MovieList
           movieList={this.state.movieList}
