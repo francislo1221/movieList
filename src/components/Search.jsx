@@ -1,8 +1,8 @@
-var Search = ({value, handleInput, handleSearchClick, onKeyDown}) => {
+var Search = ({value, handleInput, handleSearch, onKeyDown}) => {
   return(
   <div className="search-bar form-inline">
     <input id='search' type='text' className="form-control" value={value} onChange={handleInput} onKeyDown={onKeyDown} placeholder="Search..."/>
-    <button className="btn" onClick={handleSearchClick}>
+    <button className="btn" onClick={handleSearch}>
       <span className="glyphicon glyphicon-search"></span>
     </button>
 
