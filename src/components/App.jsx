@@ -22,7 +22,18 @@ class App extends React.Component {
   }
 
   filterToWatch() {
-    
+    var allMovies = this.state.fullList
+    var toWatch = [];
+
+    for(var i = 0; i < allMovies.length; i++) {
+      if(!this.state.watched.includes(allMovies[i])) {
+        toWatch.push(allMovies[i]);
+      }
+    }
+
+    this.setState({
+      movieList: toWatch
+    })
   }
 
   watchedClick(e) {
@@ -114,7 +125,7 @@ class App extends React.Component {
           <span>
             <button class="filter_watched" onClick={this.filterWatched.bind(this)}>watched
             </button>
-            <button class="filter_not_watched" >watch
+            <button class="filter_not_watched" onClick={this.filterToWatch.bind(this)}>watch
             </button>
           </span>
         </div>
