@@ -9,9 +9,31 @@ class App extends React.Component {
     this.state = {
       movieList: [],
       fullList: [],
+      watched: [],
       searchInput: '',
       addInput: ''
     }
+  }
+
+  watchedClick(e) {
+    var prevWatched = this.state.watched.slice(0)
+    var movie = e.target.value
+    console.log(prevWatched)
+    if (!prevWatched.includes(movie)) {
+      prevWatched.push(movie);
+    } else {
+      prevWatched = this.removeMovie(prevWatched, movie)
+      }
+      this.setState({
+        watched: prevWatched
+      });
+    }
+  
+
+  removeMovie(watched, movie) {
+    return watched.filter(function(ele) {
+      return ele != movie;
+    })
   }
   
   handleInput(e) {
@@ -92,10 +114,12 @@ class App extends React.Component {
         />
         <MovieList
           movieList={this.state.movieList}
+          watchedClick={this.watchedClick.bind(this)}
         />
       </div>
     )
   };
+
 };
 
 export default App;

@@ -1,10 +1,13 @@
-var Movie = ({movie}) => {
-  debugger;
+var Movie = ({movie, key, watchedClick}) => {
   return (
   <div className='movie'>
     <li title={movie}>{movie}
       <span>
-        <button className="watched_btn">Watched
+        <button 
+          value={movie}
+          className="watched_btn"
+          onClick={watchedClick}
+          >Watched
         </button>
       </span>
     </li>
