@@ -15,6 +15,12 @@ class App extends React.Component {
     }
   }
 
+  showAll() {
+    this.setState({
+      movieList: this.state.fullList
+    })
+  }
+
   filterWatched() {
     this.setState({
       movieList: this.state.watched
@@ -123,10 +129,11 @@ class App extends React.Component {
       <div>
         <div>
           <span>
-            <button class="filter_watched" onClick={this.filterWatched.bind(this)}>watched
+            <button className="filter_watched" onClick={this.filterWatched.bind(this)}>watched
             </button>
-            <button class="filter_not_watched" onClick={this.filterToWatch.bind(this)}>watch
+            <button className="filter_not_watched" onClick={this.filterToWatch.bind(this)}>watch
             </button>
+            <button className="show_all" onClick={this.showAll.bind(this)}>show all</button>
           </span>
         </div>
         <Add 
@@ -144,6 +151,7 @@ class App extends React.Component {
         <MovieList
           movieList={this.state.movieList}
           watchedClick={this.watchedClick.bind(this)}
+          watched={this.state.watched}
         />
       </div>
     )
