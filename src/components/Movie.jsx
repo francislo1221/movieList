@@ -1,3 +1,5 @@
+import MovieInfo from './MovieInfo.js'
+
 var Movie = ({movie, key, watchedClick, watched}) => {
   var status = "watch";
 
@@ -16,6 +18,7 @@ var Movie = ({movie, key, watchedClick, watched}) => {
           onClick={watchedClick}>{status}
         </button>
       </span>
+      <MovieInfo/>
     </li>
   </div>
   )
