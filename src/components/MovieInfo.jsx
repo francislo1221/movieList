@@ -1,7 +1,7 @@
-var MovieInfo = () => {
-  debugger;
+var MovieInfo = ({title}) => {
+  console.log(title)
   return (
-  <div>
+  <div id={title} style={{display: "none"}}>
     <ul>
       <li>Year</li>
       <li>Runtime</li>

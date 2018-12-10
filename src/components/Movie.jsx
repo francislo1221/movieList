@@ -1,6 +1,6 @@
 import MovieInfo from './MovieInfo.js'
 
-var Movie = ({movie, key, watchedClick, watched}) => {
+var Movie = ({movie, key, watchedClick, watched, showInfo}) => {
   var status = "watch";
 
   if (watched.includes(movie)) {
@@ -8,8 +8,9 @@ var Movie = ({movie, key, watchedClick, watched}) => {
     movie
   }
 
+
   return(
-  <div className='movie'>
+  <div className='movie' onClick={showInfo}>
     <li title={movie}>{movie}
       <span>
         <button 
@@ -18,7 +19,7 @@ var Movie = ({movie, key, watchedClick, watched}) => {
           onClick={watchedClick}>{status}
         </button>
       </span>
-      <MovieInfo/>
+        <MovieInfo title={movie}/>
     </li>
   </div>
   )

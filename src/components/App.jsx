@@ -1,6 +1,7 @@
 import MovieList from './MovieList.js';
 import Search from './Search.js';
 import Add from './Add.js';
+import MovieInfo from './MovieInfo.js'
 
 class App extends React.Component {
   constructor(props) {
@@ -13,6 +14,12 @@ class App extends React.Component {
       searchInput: '',
       addInput: ''
     }
+  }
+
+  showInfo(e) {
+    var entry = e.target.title
+    console.log(entry)
+    document.getElementById(entry).style.display = "block";
   }
 
   showAll() {
@@ -152,6 +159,7 @@ class App extends React.Component {
           movieList={this.state.movieList}
           watchedClick={this.watchedClick.bind(this)}
           watched={this.state.watched}
+          showInfo={this.showInfo.bind(this)}
         />
       </div>
     )

@@ -1,6 +1,6 @@
 import Movie from './Movie.js';
 
-var MovieList = ({movieList, watchedClick, watched}) => {
+var MovieList = ({movieList, watchedClick, watched, showInfo}) => {
   return (
   <div className="movie-list">
     <ul>
@@ -12,6 +12,7 @@ var MovieList = ({movieList, watchedClick, watched}) => {
             key={index} 
             watchedClick={watchedClick}
             watched={watched}
+            showInfo={showInfo}
           />
         )
       })}
