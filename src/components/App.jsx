@@ -18,7 +18,6 @@ class App extends React.Component {
 
   showInfo(e) {
     var entry = e.target.title
-    console.log(document.getElementById(entry).style.display)
     var view = document.getElementById(entry).style.display
     if (view === "none") {
       view = "block"
