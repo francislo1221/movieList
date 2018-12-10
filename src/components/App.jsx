@@ -100,6 +100,14 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <div>
+          <span>
+            <button class="filter_watched" >watched
+            </button>
+            <button class="filter_not_watched" >watch
+            </button>
+          </span>
+        </div>
         <Add 
           value={this.state.addInput} 
           handleInput={this.handleInput.bind(this)} 
