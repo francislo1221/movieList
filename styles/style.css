@@ -16,15 +16,25 @@ h1{
 
 .movie{
   float: right;
-  text-align: center;
+  text-align: left;
   display: block;
   font-size: 20px;
   border-style: solid;
   border-width: thin;
-  padding: 0px;
+  padding: 10px;
   margin: 0px auto;
   overflow: auto;
   width: 111%;
+}
+
+.watched_btn {
+  float: right;
+  font-size: 15px;
+  border-radius: 2px;
+  border-color: #d3d3d3;
+  background: #f8f8f8;
+  width: 20%;
+  margin-left: -1px;
 }
 
 .search-bar {
