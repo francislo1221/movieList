@@ -15,6 +15,16 @@ class App extends React.Component {
     }
   }
 
+  filterWatched() {
+    this.setState({
+      movieList: this.state.watched
+    })
+  }
+
+  filterToWatch() {
+    
+  }
+
   watchedClick(e) {
     var prevWatched = this.state.watched.slice(0)
     var movie = e.target.value
@@ -102,7 +112,7 @@ class App extends React.Component {
       <div>
         <div>
           <span>
-            <button class="filter_watched" >watched
+            <button class="filter_watched" onClick={this.filterWatched.bind(this)}>watched
             </button>
             <button class="filter_not_watched" >watch
             </button>
