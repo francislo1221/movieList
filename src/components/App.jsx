@@ -2,7 +2,6 @@ import MovieList from './MovieList.js';
 import Search from './Search.js';
 import Add from './Add.js';
 import MovieInfo from './MovieInfo.js'
-// import {search} from '../lib/searchOMDB.js'
 
 class App extends React.Component {
   constructor(props) {
@@ -14,9 +13,9 @@ class App extends React.Component {
       watched: [],
       searchInput: '',
       addInput: '',
-      year: '1345',
-      runtime: '123',
-      metascore: '12344'
+      year: '',
+      runtime: '',
+      metascore: ''
     }
   }
 
@@ -45,14 +44,11 @@ class App extends React.Component {
           metascore: body.vote_average
         })
       })
-      })
-    }
+    })
+  }
 
 
   showInfo(e) {
-    // call request with e.target.title as query
-    // when data is received, parse data, and send it down to movie info where
-    // it can be rendered
     var entry = e.target.title
     var view = document.getElementById(entry).style.display
     this.queryTMDB(entry)
