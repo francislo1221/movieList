@@ -2,6 +2,7 @@ import MovieList from './MovieList.js';
 import Search from './Search.js';
 import Add from './Add.js';
 import MovieInfo from './MovieInfo.js'
+// import {search} from '../lib/searchOMDB.js'
 
 class App extends React.Component {
   constructor(props) {
@@ -12,13 +13,49 @@ class App extends React.Component {
       fullList: [],
       watched: [],
       searchInput: '',
-      addInput: ''
+      addInput: '',
+      year: '1345',
+      runtime: '123',
+      metascore: '12344'
     }
   }
 
+  queryTMDB(query) {
+    var query = query.split(' ').join('+')
+    var APIKey = "d625af18b14f003c9fc09de5c2f93de8"
+    var searchURL = "https://api.themoviedb.org/3/search/movie?api_key=" + APIKey + "&query=" + query;
+    
+    fetch(searchURL)
+    .then(data => {
+      return data.json()
+    })
+    .then(data => {
+      console.log(data.results[0])
+      var id = data.results[0].id 
+      var detailURL = "https://api.themoviedb.org/3/movie/" + id + "?api_key=" + APIKey;
+      fetch(detailURL)
+      .then(body => {
+        return body.json();
+      })
+      .then(body => {
+        console.log(body);
+        this.setState({
+          year: body.release_date.slice(0,4),
+          runtime: body.runtime,
+          metascore: body.vote_average
+        })
+      })
+      })
+    }
+
+
   showInfo(e) {
+    // call request with e.target.title as query
+    // when data is received, parse data, and send it down to movie info where
+    // it can be rendered
     var entry = e.target.title
     var view = document.getElementById(entry).style.display
+    this.queryTMDB(entry)
     if (view === "none") {
       view = "block"
     } else if (view === "block") {
@@ -165,6 +202,9 @@ class App extends React.Component {
           watchedClick={this.watchedClick.bind(this)}
           watched={this.state.watched}
           showInfo={this.showInfo.bind(this)}
+          year={this.state.year}
+          runtime={this.state.runtime}
+          metascore={this.state.metascore}
         />
       </div>
     )

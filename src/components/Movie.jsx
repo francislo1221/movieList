@@ -1,6 +1,6 @@
 import MovieInfo from './MovieInfo.js'
 
-var Movie = ({movie, key, watchedClick, watched, showInfo}) => {
+var Movie = ({movie, key, watchedClick, watched, showInfo, year, runtime, metascore}) => {
   var status = "watch";
 
   if (watched.includes(movie)) {
@@ -19,7 +19,7 @@ var Movie = ({movie, key, watchedClick, watched, showInfo}) => {
           onClick={watchedClick}>{status}
         </button>
       </span>
-        <MovieInfo title={movie}/>
+        <MovieInfo title={movie} year={year} runtime={runtime} metascore={metascore}/>
     </li>
   </div>
   )
